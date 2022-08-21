@@ -11,9 +11,9 @@ const getArchiveTrips = (req: any, res: any) => {
   trips.status = 'completed' OR trips.status = 'trash';
   `;
 
-  client.query(queryString)
+  return client.query(queryString)
   .then((data: any) => {
-    console.log(data.rows);
+    // console.log(data.rows);
     res.send(data.rows);
   })
   .catch((error: Error) => {

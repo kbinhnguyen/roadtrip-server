@@ -6,7 +6,7 @@ const deleteTrip = (req, res) => {
   const queryString = `
   DELETE FROM trips WHERE id = ${req.params.trip_id};
   `
-  client.query(queryString)
+  return client.query(queryString)
   .then(() => {
     res.send('Deleted');
   })

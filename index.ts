@@ -29,7 +29,7 @@ app.post("/auth/login",
   passport.authenticate("local-login", { session: false }),
   (req: any, res: any) => {
     // console.log(res)
-    console.log('req is...', req.body)
+    // console.log('req is...', req.body)
     res.json({ user: req.user });
   }
 );
