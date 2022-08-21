@@ -13,7 +13,7 @@ const getUserTrips = (req: any, res: any) => {
   AND
   (trips.status = 'planned' OR trips.status = 'active');`
 
-  client.query(queryString)
+  return client.query(queryString)
   .then((data: any) => {
     res.send(data.rows);
   })

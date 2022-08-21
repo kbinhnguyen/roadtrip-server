@@ -15,7 +15,7 @@ const updateDestinationOrder = (req : any, res : any) => {
   FROM (VALUES ${queryInsertStr}) AS temp(destination_id, order_number)
   WHERE td.destination_id = temp.destination_id AND trip_id = ${req.params.tripId}`;
 
-  client.query(query)
+  return client.query(query)
     .then(() => {
       res.status(200).end();
     })
