@@ -7,7 +7,7 @@ const addPOI =  (req : any, res : any) => {
 
   const queryString = `BEGIN;
     INSERT INTO pois (id, name) VALUES ('${POIID}', '${POIname}') ON CONFLICT (id) DO NOTHING;
-    INSERT INTO trip_destination_poi (trip_destination_id, poi_id, order_number) VALUES ((SELECT id FROM trip_destination WHERE destination_id = '${desID}' AND trip_id = ${tripID}), '${POIID}', ${order}) ON CONFLICT (trip_destination_id, poi_id) DO NOTHING;
+    INSERT INTO trip_destination_poi (trip_destination_id, poi_id, order_number) VALUES ((SELECT id FROM trip_destination WHERE destination_id = '${desID}' AND trip_id = ${tripID}), '${POIID}', ${order});
     COMMIT;`
 
   client.query(queryString)
@@ -30,8 +30,6 @@ module.exports = addPOI;
 
 /*
 INSERT INTO pois (id, name) VALUES ('3nLx7-buUBjFz9MASgXDMA', 'South Coast Botanic Garden') ON CONFLICT (id) DO NOTHING;
-
 SELECT id FROM trip_destination WHERE destination_id = 'ChIJfcS6fx7LwoARZYDiqXgXL6E' AND trip_id = 1
-
 INSERT INTO trip_destination_poi (trip_destination_id, poi_id, order_number) VALUES (1, '3nLx7-buUBjFz9MASgXDMA', 1);
 */

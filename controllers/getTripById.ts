@@ -2,7 +2,7 @@ var express = require('express');
 var client = require('../db/index.js');
 
 const getTripById = (req : any, res : any) => {
-  console.log('server getTrip was invoked');
+  // console.log('server getTrip was invoked');
   // console.log('getTrip controller invoked! here is req.params', req.query);
   const trip_id: string = req.params.trip_id;
 
@@ -40,7 +40,6 @@ module.exports = getTripById;
 
 
 /*
-
 const sampleTrip = {
   destinations: [
     {
