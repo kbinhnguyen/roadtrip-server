@@ -16,7 +16,9 @@ const postCities = async (req: any, res: any) => {
     VALUES($2, $5, $6)`;
 
     var results = await client.query(queryString, values)
-    try{ console.log('Success posting query from back')}
+    try{
+      // console.log('Success posting query from back')
+  }
     catch(err) {console.log('Error in storing data', err)}
   });
 }
